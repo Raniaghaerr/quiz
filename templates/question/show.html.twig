@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la question{% endblock %}
+
+{% block body %}
+    <h1>Détails de la question</h1>
+
+    <p><strong>Question :</strong> {{ question.questionText }}</p>
+    <p><strong>Réponse correcte :</strong> {{ question.reponseCorrecte }}</p>
+    <p><strong>Réponses possibles :</strong> {{ question.reponses }}</p>
+
+    <a href="{{ path('question_edit', {'id': question.id}) }}">Modifier cette question</a>
+    <a href="{{ path('question_index', {'quizId': quiz.id}) }}">Retour à la liste des questions</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz Details{% endblock %}
+
+{% block body %}
+    <h1>{{ quiz.titre }}</h1>
+
+    <p><strong>ID:</strong> {{ quiz.id }}</p>
+    <p><strong>Number of Questions:</strong> {{ quiz.nbQuestions }}</p>
+    <p><strong>Duration:</strong> {{ quiz.duree }} minutes</p>
+
+    <a href="{{ path('quiz_edit', {'id': quiz.id}) }}">Edit</a>
+    <a href="{{ path('quiz_delete', {'id': quiz.id}) }}" onclick="return confirm('Are you sure?')">Delete</a>
+    <a href="{{ path('quiz_index') }}">Back to list</a>
+{% endblock %}

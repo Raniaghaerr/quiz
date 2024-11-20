@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une nouvelle Question{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle question pour le quiz "{{ quiz.titre }}"</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.questionText) }}  {# Affiche le champ pour la question #}
+        {{ form_row(form.reponseCorrecte) }}  {# Affiche le champ pour la réponse correcte #}
+        {{ form_row(form.reponses) }}  {# Affiche les champs pour les réponses #}
+        <button type="submit">Créer la question</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('question_index', {'quizId': quiz.id}) }}">Retour à la liste des questions</a>
+{% endblock %}
+

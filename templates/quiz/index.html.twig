@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Quizzes{% endblock %}
+
+{% block body %}
+    <h1>Liste des Quizzes</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Nombre de Questions</th>
+                <th>Durée (minutes)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quiz in quizzes %}
+                <tr>
+                    <td>{{ quiz.id }}</td>
+                    <td>{{ quiz.titre }}</td>
+                    <td>{{ quiz.nbrequestion }}</td>
+                    <td>{{ quiz.duree }}</td>
+                    <td>
+                        <a href="{{ path('quiz_show', {'id': quiz.id}) }}">Voir</a> |
+                        <a href="{{ path('quiz_edit', {'id': quiz.id}) }}">Modifier</a> |
+                        <a href="{{ path('quiz_delete', {'id': quiz.id}) }}">Supprimer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun quiz trouvé.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('quiz_create') }}">Créer un nouveau quiz</a>
+{% endblock %}

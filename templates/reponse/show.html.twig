@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la Réponse{% endblock %}
+
+{% block body %}
+    <h1>Détails de la Réponse</h1>
+
+    <p><strong>Contenu :</strong> {{ reponse.contenu }}</p>
+    <a href="{{ path('reponse_edit', {'id': reponse.id}) }}" class="btn btn-primary">Modifier</a>
+    <a href="{{ path('reponse_index') }}" class="btn btn-secondary">Retour</a>
+{% endblock %}

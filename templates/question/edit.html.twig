@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Éditer la question{% endblock %}
+
+{% block body %}
+    <h1>Éditer la question pour le quiz "{{ quiz.titre }}"</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.questionText) }}
+        {{ form_row(form.reponseCorrecte) }}
+        {{ form_row(form.reponses) }}
+        <button type="submit">Mettre à jour la question</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('question_index', {'quizId': quiz.id}) }}">Retour à la liste des questions</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer une question{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Êtes-vous sûr de vouloir supprimer cette question ?</h1>
+
+        <p>Question : {{ question.titre }}</p>
+        
+        <form method="post" action="{{ path('question_delete', {'id': question.id}) }}">
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            <a href="{{ path('question_index') }}" class="btn btn-secondary">Annuler</a>
+        </form>
+    </div>
+{% endblock %}

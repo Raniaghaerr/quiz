@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer une Réponse{% endblock %}
+
+{% block body %}
+    <h1>Êtes-vous sûr de vouloir supprimer cette réponse ?</h1>
+
+    <p><strong>Contenu de la réponse :</strong> {{ reponse.contenu }}</p>
+
+    <form method="post" action="{{ path('reponse_delete', {'id': reponse.id}) }}">
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+        <a href="{{ path('reponse_index') }}" class="btn btn-secondary">Annuler</a>
+    </form>
+{% endblock %}
