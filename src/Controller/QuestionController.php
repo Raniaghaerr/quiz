@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Question;
+use App\Entity\Reponse;
 use App\Entity\Quiz;  // Assure-toi d'importer l'entité Quiz
 use App\Form\QuestionType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,7 +29,8 @@ class QuestionController extends AbstractController
 
         return $this->render('question/index.html.twig', [
             'questions' => $questions,
-            
+        
+
         ]);
     }
 
@@ -45,7 +47,14 @@ class QuestionController extends AbstractController
 
         $question = new Question();
         $form = $this->createForm(QuestionType::class, $question);
-
+    
+        // Ajouter des réponses vides si elles n'existent pas déjà
+        if (count($question->getReponses()) == 0) {
+            for ($i = 0; $i < 4; $i++) { // Ajouter 4 réponses vides
+                $question->addReponse(new Reponse());
+            }
+        }
+    
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
