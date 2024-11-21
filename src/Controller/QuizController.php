@@ -23,7 +23,7 @@ class QuizController extends AbstractController
     {
         $quizRepository = $this->entityManager->getRepository(Quiz::class);
         $quizzes = $quizRepository->findAll();
-        dump($quizzes)
+        dump($quizzes);
 
         return $this->render('quiz/index.html.twig', [
             'quizzes' => $quizzes,

@@ -6,7 +6,7 @@
     <h1>Créer une nouvelle question pour le quiz "{{ quiz.titre }}"</h1>
 
     {{ form_start(form) }}
-        {{ form_row(form.questionText) }}  {# Affiche le champ pour la question #}
+        {{ form_row(form.enonce) }}  {# Affiche le champ pour la question #}
         {{ form_row(form.reponseCorrecte) }}  {# Affiche le champ pour la réponse correcte #}
         {{ form_row(form.reponses) }}  {# Affiche les champs pour les réponses #}
         <button type="submit">Créer la question</button>
